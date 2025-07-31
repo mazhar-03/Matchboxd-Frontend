@@ -175,7 +175,8 @@ export default function ProfilePage() {
       const formData = new FormData();
       formData.append("ProfileImage", file);
 
-      const response = await fetch("${baseUrl}/settings", {
+      // Fix: Use backticks (`) instead of quotes (")
+      const response = await fetch(`${baseUrl}/settings`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -192,16 +193,11 @@ export default function ProfilePage() {
         const decoded = jwt.decode(result.token) as { userPhoto?: string };
         setAuthState(prev => ({
           ...prev,
-          userPhoto: decoded?.userPhoto
-            ? decoded.userPhoto.startsWith('http')
-              ? decoded.userPhoto
-              : `${backendBaseUrl}${decoded.userPhoto}`
-            : prev.userPhoto
+          userPhoto: decoded?.userPhoto || prev.userPhoto
         }));
       }
 
       setMessage({ text: "Profile picture updated!", type: "success" });
-
     } catch (error) {
       setMessage({
         text: error instanceof Error ? error.message : "Upload failed",
