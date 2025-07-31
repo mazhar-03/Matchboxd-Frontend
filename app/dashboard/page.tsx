@@ -37,7 +37,7 @@ export default function Dashboard() {
         if (isExpired) {
           throw new Error("Token expired");
         }
-        const backendBaseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5011";
+        const backendBaseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
         // Ensure proper image URL format
         const userPhoto = decoded?.userPhoto
           ? decoded.userPhoto.startsWith('http')

@@ -15,7 +15,7 @@ export default function FavPage() {
   const [favorites, setFavorites] = useState<FavoriteMatch[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     const fetchFavorites = async () => {

@@ -32,8 +32,8 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{text: string, type: 'success' | 'error'} | null>(null);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
-  const backendBaseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5011";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
+  const backendBaseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
 
 
   // Load auth state from token

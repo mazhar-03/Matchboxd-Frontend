@@ -35,7 +35,7 @@ export default function MatchDetailPage() {
   const [comment, setComment] = useState('');
   const [,setHoverStar] = useState<number>(0);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
 
   const [userActions, setUserActions] = useState({
     hasWatched: false,

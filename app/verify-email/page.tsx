@@ -10,7 +10,7 @@ export default function VerifyEmailPage() {
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
   const [message, setMessage] = useState("");
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
 
   useEffect(() => {
     if (!token) {

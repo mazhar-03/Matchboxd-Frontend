@@ -18,7 +18,7 @@ export default function RootLayout({
     isLoading: true,
   });
   const pathname = usePathname();
-
+  const baseUrl = process.env.NEXT_PUBLIC_API_BACKEND_URL
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem('authToken');
@@ -93,7 +93,7 @@ export default function RootLayout({
         authState.userPhoto?.startsWith('http')
           ? authState.userPhoto
           : authState.userPhoto
-            ? `http://localhost:5011${authState.userPhoto}`
+            ? `${baseUrl}${authState.userPhoto}`
             : undefined
       }
       key={authState.isSignedIn ? 'authenticated' : 'guest'} // Force re-render on auth change

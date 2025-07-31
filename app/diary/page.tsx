@@ -29,7 +29,7 @@ export default function DiaryPage() {
   const [editedScore, setEditedScore] = useState<number>(0);
   const [editedComment, setEditedComment] = useState<string>("");
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     const fetchEntries = async () => {

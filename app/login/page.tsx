@@ -15,7 +15,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

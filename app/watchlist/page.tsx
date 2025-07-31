@@ -23,7 +23,7 @@ export default function WatchlistPage() {
   const [matches, setMatches] = useState<WatchlistMatch[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     fetchWatchlist();
