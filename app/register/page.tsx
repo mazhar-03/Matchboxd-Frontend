@@ -92,25 +92,59 @@ export default function RegisterPage() {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      // First check if response exists and is OK
+      if (!res) {
+        throw new Error("No response from server");
+      }
+
+      // Handle empty responses
+      const responseText = await res.text();
+      let data;
+
+      try {
+        data = responseText ? JSON.parse(responseText) : null;
+      } catch (jsonError) {
+        console.error("JSON parsing error:", jsonError);
+        throw new Error(responseText || "Invalid server response");
+      }
 
       if (!res.ok) {
-        // Handle backend validation errors
-        const backendError = typeof data === 'string' ? data : data.message;
-        setMessage({ text: backendError || "Registration failed", isError: true });
+        // Handle different error response formats
+        const backendError = data?.message ||
+          data?.error ||
+          (typeof data === 'string' ? data : null) ||
+          responseText ||
+          `Registration failed (Status ${res.status})`;
+
+        setMessage({ text: backendError, isError: true });
         return;
       }
 
+      // Success case
       setMessage({
-        text: "Success! Please check your email to verify your account.",
+        text: data?.message || "Success! Please check your email to verify your account.",
         isError: false
       });
       setFormData({ email: "", username: "", password: "" });
 
     } catch (err) {
-      console.error(err);
+      console.error("Registration error:", err);
+
+      let errorMessage = "Network error. Please try again.";
+
+      if (err instanceof Error) {
+        errorMessage = err.message || errorMessage;
+
+        // Handle specific error cases
+        if (err.message.includes("Failed to fetch")) {
+          errorMessage = "Could not connect to the server. Please check your connection.";
+        } else if (err.message.includes("Unexpected end of JSON input")) {
+          errorMessage = "Server returned an invalid response.";
+        }
+      }
+
       setMessage({
-        text: "Network error. Please try again.",
+        text: errorMessage,
         isError: true
       });
     }
