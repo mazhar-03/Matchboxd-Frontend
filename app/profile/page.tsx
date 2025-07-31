@@ -32,7 +32,7 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{text: string, type: 'success' | 'error'} | null>(null);
 
-  const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://matchboxd-backend.onrender.com/api";
   const backendBaseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
 
 

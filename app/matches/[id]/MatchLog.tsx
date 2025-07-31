@@ -19,7 +19,7 @@ export default function MatchLog({ match, userId }: MatchLogProps) {
   const [favoriteAdded, setFavoriteAdded] = useState(false);
   const [watched, setWatched] = useState(false);
 
-  const baseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://matchboxd-backend.onrender.com/api";
 
   const canAddToWatchlist = match.status !== "finished";
 

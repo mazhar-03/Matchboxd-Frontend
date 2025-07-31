@@ -35,7 +35,7 @@ export default function MatchDetailPage() {
   const [comment, setComment] = useState('');
   const [,setHoverStar] = useState<number>(0);
 
-  const baseUrl = process.env.NEXT_PUBLIC_APP_BACKEND_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://matchboxd-backend.onrender.com/api";
 
   const [userActions, setUserActions] = useState({
     hasWatched: false,
