@@ -13,7 +13,7 @@ export default function RegisterPage() {
   const [message, setMessage] = useState({ text: "", isError: false });
   const router = useRouter();
 
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://matchboxd-backend.onrender.com/api";
   console.log("API base URL:", baseUrl);
 
   const validateField = (name: string, value: string) => {
