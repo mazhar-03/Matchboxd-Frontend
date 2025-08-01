@@ -71,7 +71,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
-        ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+        ? "bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl shadow-xl"
         : "bg-white dark:bg-gray-900"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,7 +123,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
 
                   {/* Dropdown menu (only desktop) */}
                   {desktopDropdownOpen && (
-                    <div className="absolute right-0 mt-72 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md z-50">
+                    <div className="absolute right-0 mt-56 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md z-50">
                       {dropdownLinks.map((item) => (
                         <Link
                           key={item.href}
