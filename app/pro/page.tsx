@@ -5,14 +5,14 @@ export const metadata = {
 
 export default function ProPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 text-gray-400">
-      <h1 className="text-4xl font-bold mb-6 text-center">Matchboxd Pro</h1>
+    <main className="max-w-3xl mx-auto px-4 py-12 ">
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-200">Matchboxd Pro</h1>
 
-      <p className="text-lg text-center mb-8">
+      <p className="text-lg text-center mb-8 text-gray-300">
         Unlock exclusive features, customize your profile, and experience Matchboxd at its best.
       </p>
 
-      <div className="bg-white p-6 shadow-lg rounded-xl">
+      <div className="bg-white p-6 shadow-lg rounded-xl text-gray-800">
         <h2 className="text-2xl font-semibold mb-4">🎉 Coming Soon</h2>
         <ul className="list-disc space-y-3 ml-5">
           <li>Ad-free match experience</li>

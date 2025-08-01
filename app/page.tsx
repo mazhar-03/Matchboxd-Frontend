@@ -11,7 +11,7 @@ export default function Home() {
       {/* Arka plan resmi */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/image/logo.jpeg"
+          src="/image/logo1.webp"
           alt="Premier League 25/26"
           fill
           className="object-cover opacity-30"

@@ -5,10 +5,10 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-12 text-gray-300">
-      <h1 className="text-4xl font-bold mb-6 text-center">About Matchboxd</h1>
+    <section className="max-w-4xl mx-auto px-4 py-12 ">
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-200">About Matchboxd</h1>
 
-      <p className="mb-6 text-lg leading-relaxed text-center">
+      <p className="mb-6 text-lg leading-relaxed text-center text-gray-300">
         Matchboxd is where football meets emotion. It&#39;s a platform for fans to relive matches, share
         their reactions, and connect with others through the highs and lows of the beautiful game.
       </p>
@@ -23,7 +23,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-white shadow-md p-6 rounded-xl">
+        <div className="bg-white shadow-md p-6 rounded-xl text-gray-800">
           <h2 className="text-2xl font-semibold mb-3">⚙️ How It Works</h2>
           <ul className="list-disc ml-5 space-y-2">
             <li>View past matches or upcoming fixtures</li>
