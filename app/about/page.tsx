@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
+    <section className="max-w-4xl mx-auto px-4 py-12 text-gray-300">
       <h1 className="text-4xl font-bold mb-6 text-center">About Matchboxd</h1>
 
       <p className="mb-6 text-lg leading-relaxed text-center">
@@ -43,6 +43,6 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

@@ -83,7 +83,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
             className="text-2xl font-bold text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors flex items-center"
             aria-label="Home"
           >
-            ⚽ MatchJournal
+            ⚽ Matchboxd
           </Link>
 
           {/* Desktop Navigation */}
@@ -155,13 +155,13 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
               <div className="flex items-center gap-4">
                 <Link
                   href="/login"
-                  className="px-6 py-3 rounded-lg text-lg transition text-green-600 hover:text-green-700 bg-gray-200 hover:bg-gray-400"
+                  className="px-6 py-3 rounded-lg text-md transition text-green-600 hover:text-green-700 bg-gray-200 hover:bg-gray-400"
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg transition"
+                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-md transition"
                 >
                   Register
                 </Link>

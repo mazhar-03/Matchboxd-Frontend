@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function ProPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 text-gray-800">
+    <main className="max-w-3xl mx-auto px-4 py-12 text-gray-400">
       <h1 className="text-4xl font-bold mb-6 text-center">Matchboxd Pro</h1>
 
       <p className="text-lg text-center mb-8">
