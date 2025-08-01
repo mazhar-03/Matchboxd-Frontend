@@ -112,7 +112,7 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-800 dark:text-white">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-600 dark:text-gray-300">+48 579 189 060</p>
                   </div>
                 </div>
 
@@ -123,9 +123,9 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-800 dark:text-white">Address</h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      123 Football Avenue<br />
-                      Sports City, SC 90210<br />
-                      United States
+                      Legia Warszawa<br />
+                      Mokotow, Warsaw<br />
+                      Poland
                     </p>
                   </div>
                 </div>

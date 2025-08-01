@@ -51,7 +51,6 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
     { label: "My Reviews", href: "/reviews", icon: <Pen className="w-4 h-4" /> },
     { label: "Favorites", href: "/favourites", icon: <Heart className="w-4 h-4" /> },
     { label: "Watchlist", href: "/watchlist", icon: <Bookmark className="w-4 h-4" /> },
-    { label: "Settings", href: "/settings", icon: <Settings className="w-4 h-4" /> },
   ];
 
   // Close menus when clicking outside
@@ -70,7 +69,11 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
   }, []);
 
   return (
-    <nav className={`bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 shadow-lg' : ''}`}>
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md'
+        : 'bg-white dark:bg-gray-900'
+    } border-b border-gray-200 dark:border-gray-800`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
