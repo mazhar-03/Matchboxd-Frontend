@@ -218,11 +218,13 @@ export default function RegisterPage() {
       </form>
 
       {message.text && (
-        <p className={`text-sm text-center ${
-          message.isError ? "text-red-500" : "text-green-600"
+        <div className={`p-3 rounded-md text-center ${
+          message.isError
+            ? "bg-red-100 border border-red-400 text-red-700"
+            : "bg-green-100 border border-green-400 text-green-700"
         }`}>
-          {message.text}
-        </p>
+          <p className="text-sm">{message.text}</p>
+        </div>
       )}
 
       <div className="mt-4 flex justify-between items-center">
