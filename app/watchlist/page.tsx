@@ -76,16 +76,17 @@ export default function WatchlistPage() {
     return stars;
   };
 
+
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-500">
         My Watchlist
       </h1>
 
       {loading && <p className="text-center">Loading...</p>}
 
       {!loading && matches.length === 0 && (
-        <p className="text-center text-gray-600">Your watchlist is empty.</p>
+        <p className="text-center text-gray-400">Your watchlist is empty.</p>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

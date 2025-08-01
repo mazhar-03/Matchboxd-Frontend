@@ -57,14 +57,15 @@ export default function FavPage() {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="text-center py-8">Loading reviews...</p>;
+  if (error)
+    return <p className="text-center text-red-500 py-8">{error}</p>;
 
   return (
     <div className="p-6 text-gray-300">
       <h2 className="text-2xl font-bold mb-4 ">Your Favorite Matches</h2>
       {favorites.length === 0 ? (
-        <p>No favorites yet.</p>
+        <p className="text-center py-8">You have no favorites yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
           {favorites.map((match) => (
