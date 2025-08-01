@@ -161,7 +161,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
                 </Link>
                 <Link
                   href="/register"
-                  className="px-3 py-1.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md"
+                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg transition"
                 >
                   Register
                 </Link>
