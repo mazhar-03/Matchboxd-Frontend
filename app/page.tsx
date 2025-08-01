@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="relative bg-black text-white min-h-[80vh] w-full flex items-center justify-center overflow-hidden">
+    <div className="relative bg-black text-white min-h-[80vh] w-full h-screen flex items-center justify-center overflow-hidden">
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -42,7 +42,7 @@ export default function Home() {
       {/* Subtle floating footballs animation */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-slow">
         <Image
-          src="/image/football-icon.webp"
+          src="/image/logo.png"
           alt="Football"
           width={40}
           height={40}
