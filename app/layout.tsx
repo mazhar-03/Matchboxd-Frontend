@@ -84,23 +84,25 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className="h-full" >
-    <body suppressHydrationWarning={true} className="flex flex-col min-h-full">
-    <Navbar
-      isSignedIn={authState.isSignedIn}
-      username={authState.username}
-      userPhoto={
-        authState.userPhoto?.startsWith('http')
-          ? authState.userPhoto
-          : authState.userPhoto
-            ? `${baseUrl}${authState.userPhoto}`
-            : undefined
-      }
-      key={authState.isSignedIn ? 'authenticated' : 'guest'} // Force re-render on auth change
-    />
-    {children}
-    <Footer />
-    </body>
+    <html lang="en" className="h-full">
+      <body suppressHydrationWarning={true} className="flex flex-col min-h-screen">
+        <Navbar
+          isSignedIn={authState.isSignedIn}
+          username={authState.username}
+          userPhoto={
+            authState.userPhoto?.startsWith('http')
+              ? authState.userPhoto
+              : authState.userPhoto
+                ? `${baseUrl}${authState.userPhoto}`
+                : undefined
+          }
+          key={authState.isSignedIn ? 'authenticated' : 'guest'}
+        />
+        <main className="flex-1">{children}</main>
+
+        <Footer />
+      </body>
     </html>
   );
+
 }
