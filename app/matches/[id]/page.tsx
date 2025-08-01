@@ -285,24 +285,26 @@ export default function MatchDetailPage() {
 
       {/* Kullanıcı Aksiyonları */}
       <div className="flex flex-wrap gap-4 mb-8">
-        <button
-          onClick={handleWatchToggle}
-          className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-200 ${
-            userActions.hasWatched
-              ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 shadow-lg shadow-yellow-500/20'
-              : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/20'
-          } text-white font-medium`}
-        >
-          <EyeIcon className="h-5 w-5"/>
-          {userActions.hasWatched ? (
-            <>
-              <span className="hidden sm:inline">Watched</span>
-              <span className="inline sm:hidden">✓</span>
-            </>
-          ) : (
-            'Mark Watched'
-          )}
-        </button>
+        {match.status === 'FINISHED' && (
+          <button
+            onClick={handleWatchToggle}
+            className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-200 ${
+              userActions.hasWatched
+                ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 shadow-lg shadow-yellow-500/20'
+                : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/20'
+            } text-white font-medium`}
+          >
+            <EyeIcon className="h-5 w-5"/>
+            {userActions.hasWatched ? (
+              <>
+                <span className="hidden sm:inline">Watched</span>
+                <span className="inline sm:hidden">✓</span>
+              </>
+            ) : (
+              'Mark Watched'
+            )}
+          </button>
+        )}
 
         {/* Maç FINISHED değilse göster */}
         {match.status !== 'FINISHED' && (

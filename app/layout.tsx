@@ -84,8 +84,8 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
-    <body suppressHydrationWarning={true} className="min-h-scree">
+    <html lang="en" >
+    <body suppressHydrationWarning={true} className="min-h-screen">
     <Navbar
       isSignedIn={authState.isSignedIn}
       username={authState.username}
