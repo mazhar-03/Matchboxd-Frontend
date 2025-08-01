@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import {Pen, Settings, Heart, Bookmark, CalendarDays, Menu, User} from "lucide-react";
+import {Pen, Settings, Heart, Bookmark, CalendarDays, Menu} from "lucide-react";
 import UserAvatar from "@/app/components/UserAvatar";
 import { SignOutButton } from "./SignOutButton";
 
@@ -155,7 +155,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
               <div className="flex items-center gap-4">
                 <Link
                   href="/login"
-                  className="px-3 py-1.5 text-sm font-medium text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
+                  className="px-6 py-3 rounded-lg text-lg transition text-green-600 hover:text-green-700 bg-gray-200 hover:bg-gray-400"
                 >
                   Login
                 </Link>
