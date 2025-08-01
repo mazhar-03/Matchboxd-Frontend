@@ -10,10 +10,10 @@ export default function Home() {
       <div className="relative bg-black text-white h-[80vh] flex items-center justify-center">
         <div className="relative w-full h-[80vh]">
           <Image
-            src="/Image/logo.jpeg"
+            src="/image/logo.jpeg"
             alt="Premier League 25/26"
-            fill
-            className="object-cover opacity-30"
+            width={500}
+            height={300}
           />
         </div>
         <div className="relative z-10 text-center px-4">
