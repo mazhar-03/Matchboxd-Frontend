@@ -66,7 +66,7 @@ export default function CreatedReviewsPage() {
     return <p className="text-center py-8">You have no reviews yet.</p>;
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
+    <div className="max-w-3xl mx-auto p-4 min-h-screen">
       <h1 className="text-2xl font-semibold mb-6">My Reviews & Ratings</h1>
       <ul className="space-y-6">
         {reviews.map((review) => (

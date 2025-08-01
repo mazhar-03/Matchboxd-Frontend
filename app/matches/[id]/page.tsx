@@ -287,44 +287,49 @@ export default function MatchDetailPage() {
       <div className="flex flex-wrap gap-4 mb-8">
         <button
           onClick={handleWatchToggle}
-          className={`flex items-center gap-2 px-4 py-2 ${
-            userActions.hasWatched ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-blue-600 hover:bg-blue-700'
-          } text-white rounded-lg`}
+          className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-200 ${
+            userActions.hasWatched
+              ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 shadow-lg shadow-yellow-500/20'
+              : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/20'
+          } text-white font-medium`}
         >
           <EyeIcon className="h-5 w-5"/>
-          {userActions.hasWatched ? 'Unmark as Watched' : 'Mark as Watched'}
+          {userActions.hasWatched ? (
+            <>
+              <span className="hidden sm:inline">Watched</span>
+              <span className="inline sm:hidden">✓</span>
+            </>
+          ) : (
+            'Mark Watched'
+          )}
         </button>
 
         {/* Maç FINISHED değilse göster */}
         {match.status !== 'FINISHED' && (
           <button
             onClick={handleWatchlistToggle}
-            className={`flex items-center gap-2 px-4 py-2 ${
-              userActions.isInWatchlist ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
-            } text-white rounded-lg`}
+            className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-200 ${
+              userActions.isInWatchlist
+                ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-lg shadow-red-500/20'
+                : 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/20'
+            } text-white font-medium`}
           >
             <BookmarkIcon className="h-5 w-5"/>
-            {userActions.isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
+            {userActions.isInWatchlist ? 'In Watchlist' : 'Add to Watchlist'}
           </button>
         )}
 
-        {userActions.hasFavorited ? (
-          <button
-            onClick={handleFavoriteToggle}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg"
-          >
-            <StarIcon className="h-5 w-5 text-yellow-400"/>
-            Remove from Favorites
-          </button>
-        ) : (
-          <button
-            onClick={handleFavoriteToggle}
-            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg"
-          >
-            <StarIcon className="h-5 w-5"/>
-            Add to Favorites
-          </button>
-        )}
+        <button
+          onClick={handleFavoriteToggle}
+          className={`flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-200 ${
+            userActions.hasFavorited
+              ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-lg shadow-purple-500/20'
+              : 'bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 shadow-lg shadow-pink-500/20'
+          } text-white font-medium`}
+        >
+          <StarIcon className={`h-5 w-5 ${userActions.hasFavorited ? 'text-yellow-300' : ''}`}/>
+          {userActions.hasFavorited ? 'Favorited' : 'Favorite'}
+        </button>
       </div>
 
       {/* Yorum ve Puanlama */}
