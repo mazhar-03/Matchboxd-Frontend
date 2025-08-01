@@ -25,7 +25,21 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
 
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const mainLinks: NavLink[] = [
     { label: "Matches", href: "/matches" },
@@ -40,30 +54,13 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
     { label: "Settings", href: "/settings", icon: <Settings className="w-4 h-4" /> },
   ];
 
-  // Close mobile menu when clicking outside
+  // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
         setMobileMenuOpen(false);
       }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(e.target as Node)
-      ) {
-        setMobileMenuOpen(false);
-      }
-
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDesktopDropdownOpen(false);
       }
     };
@@ -72,9 +69,8 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm sticky top-0 z-40">
+    <nav className={`bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 shadow-lg' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -91,7 +87,7 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
             {isSignedIn ? (
               <>
                 {/* Main Links */}
-                <div className="flex gap-4 ">
+                <div className="flex gap-4">
                   {mainLinks.map((item) => (
                     <Link
                       key={item.href}
@@ -117,8 +113,8 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
                       className="w-8 h-8"
                     />
                     <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
-      {username || "Account"}
-    </span>
+                      {username || "Account"}
+                    </span>
                     <span className="text-gray-500 text-3xl pt-1">▾</span>
                   </button>
 
@@ -140,15 +136,6 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
                       <SignOutButton />
                     </div>
                   )}
-                </div>
-
-                {/* Settings Dropdown */}
-                <div className="relative">
-                  <button
-                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
-                    aria-label="Settings"
-                  >
-                  </button>
                 </div>
               </>
             ) : (
@@ -173,7 +160,6 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
           <div className="sm:hidden flex items-center gap-2">
             {isSignedIn ? (
               <>
-                {/* Mobile Menu Button */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 focus:outline-none"
@@ -181,15 +167,11 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
                 >
                   <Menu className="w-5 h-5" />
                 </button>
-
-                {/* User Profile */}
-                <div className="flex items-center gap-2">
-                  <UserAvatar
-                    profileImageUrl={userPhoto}
-                    username={username}
-                    className="w-8 h-8"
-                  />
-                </div>
+                <UserAvatar
+                  profileImageUrl={userPhoto}
+                  username={username}
+                  className="w-8 h-8"
+                />
               </>
             ) : (
               <Link

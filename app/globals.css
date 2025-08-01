@@ -90,3 +90,8 @@ html {
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
 }
+
+.nav-blur {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}

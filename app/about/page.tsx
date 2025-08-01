@@ -8,7 +8,7 @@ export default function AboutPage() {
     <section className="max-w-4xl mx-auto px-4 py-12 ">
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-200">About Matchboxd</h1>
 
-      <p className="mb-6 text-lg leading-relaxed text-center text-gray-800">
+      <p className="mb-6 text-lg leading-relaxed text-center text-gray-300">
         Matchboxd is where football meets emotion. It&#39;s a platform for fans to relive matches, share
         their reactions, and connect with others through the highs and lows of the beautiful game.
       </p>
