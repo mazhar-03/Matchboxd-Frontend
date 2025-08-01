@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import {Pen, Settings, Heart, Bookmark, CalendarDays, Menu} from "lucide-react";
+import {Pen, Heart, Bookmark, CalendarDays, Menu} from "lucide-react";
 import UserAvatar from "@/app/components/UserAvatar";
 import { SignOutButton } from "./SignOutButton";
 
@@ -69,11 +69,11 @@ export default function Navbar({ isSignedIn, username, userPhoto }: NavbarProps)
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md'
-        : 'bg-white dark:bg-gray-900'
-    } border-b border-gray-200 dark:border-gray-800`}>
+        ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+        : "bg-white dark:bg-gray-900"
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
