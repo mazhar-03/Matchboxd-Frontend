@@ -84,8 +84,8 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" >
-    <body suppressHydrationWarning={true} className="min-h-screen">
+    <html lang="en" className="h-full" >
+    <body suppressHydrationWarning={true} className="flex flex-col min-h-full">
     <Navbar
       isSignedIn={authState.isSignedIn}
       username={authState.username}
