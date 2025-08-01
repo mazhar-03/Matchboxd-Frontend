@@ -8,12 +8,14 @@ export default function Home() {
 
   return (
       <div className="relative bg-black text-white h-[80vh] flex items-center justify-center">
-        <Image
-          src="/Image/logo.jpeg"
-          alt="Premier League 25/26"
-          fill
-          className="absolute inset-0 object-cover opacity-30"
-        />
+        <div className="relative w-full h-[80vh]">
+          <Image
+            src="/Image/logo.jpeg"
+            alt="Premier League 25/26"
+            fill
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Where Matches Become Memories</h1>
           <p className="text-lg md:text-xl mb-6">Feel it. Relive it. Share it.</p>
