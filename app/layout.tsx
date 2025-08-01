@@ -99,7 +99,7 @@ export default function RootLayout({
       key={authState.isSignedIn ? 'authenticated' : 'guest'}
     />
 
-    <main className="flex-1 min-h-[150vh]">{children}</main>
+    <main className="flex-1 min-h-[130vh]">{children}</main>
 
     <Footer />
     </body>
